@@ -1,0 +1,277 @@
+.contactform{ border: 2px solid white;
+width:50%;
+text-align:left;
+border-radius: 8px;
+margin: 20px; 
+display:left;
+}
+.contactform li{
+text-align: left;
+}
+.contactform ul{
+text-align: left;
+    display: inline-flex;
+}
+.contactform input{ margin: 10px;
+border: 2px solid violet;
+padding: 10px;
+border-radius: 8px;
+ }
+ .contactform text area{margin: 10px;
+ 	border: 2px solid violet;
+ 	padding:10px;
+ 	text-align: center;
+    border-radius: 8px;
+ }
+ .contactsubmit{background-color: black;
+ 	text-decoration-color: white;
+ 	text-align: center;
+    border-radius: 8px;
+ }
+.contactform button{
+    background-color:white;
+    text-decoration-color:black; 
+    border:solid violet;
+    font-size: 20px;
+    padding: 10px 20px;
+    border-radius: 8px;
+}
+.contact ul{
+    font-size: 25px;
+
+}
+.checkoutform{ border: 2px solid violet;
+width:50%;
+text-align: center;
+border-radius: 8px;
+margin: 100px; 
+display: center;
+}
+.checkoutform li{
+text-align: left;
+}
+.checkoutform ul{
+text-align: left;
+    display: inline-flex;
+}
+.checkoutform input{ margin: 10px;
+border: 2px solid violet;
+padding: 10px;
+border-radius: 8px;
+ }
+ .checkoutform text area{margin: 10px;
+    border: 2px solid violet;
+    padding:10px;
+    text-align: center;
+    border-radius: 8px;
+ }
+ .checkoutsubmit{background-color: black;
+    text-decoration-color: white;
+    text-align: center;
+    border-radius: 8px;
+ }
+.checkoutform button{
+    background-color:white;
+    text-decoration-color:black; 
+    border:solid violet;
+    font-size: 20px;
+    padding: 10px 20px;
+    border-radius: 8px;
+}
+ 
+ body{
+    background-color: #ffffff;
+    color: #e65cbb;
+    padding: 0;
+    margin: 0;
+
+}
+h2{
+    margin: 30px;
+}
+
+.nav{
+
+background: hsla(46, 83%, 70%, 1);
+background: linear-gradient(90deg, hsla(46, 83%, 70%, 1) 0%, rgb(250, 136, 210) 100%);
+
+background: -moz-linear-gradient(90deg, hsla(46, 83%, 70%, 1) 0%, rgb(250, 136, 210) 100%);
+
+background: -webkit-linear-gradient(90deg, hsla(46, 83%, 70%, 1) 0%, rgb(250, 136, 210) 100%);
+
+filter: progid: DXImageTransform.Microsoft.gradient( startColorstr="#F2D472", endColorstr="#F76CC6", GradientType=1 );
+
+    color:  #fff7ad;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-top: 10px;
+    padding-bottom: 10px;
+}
+
+.nav li {
+    display: inline;
+    margin: 20px;
+}
+
+.nav a{
+    color: #fff7ad;
+    font-size: 22px;
+    text-decoration: none;
+    display: inline-flex;
+}
+.home01{
+	padding: 10px;
+	margin: 20px;
+	display: flex;
+    text-align: justify-all;
+    font-size: 25px;
+}
+
+.nav img{
+    width: 120px;
+    height: auto;
+}
+
+.cart a{ width: 20px;
+    height: 10px;
+    margin: 20px;
+    display: inline-flex;
+
+}
+img{
+	margin: 20px;
+    width: 1000px;
+    height: 400px;
+}
+.About{
+	margin: 10px;
+	padding: 10px;
+}
+
+.cardsContainer{
+    display: flex;
+    justify-content: space-between;
+    padding: 40px;
+
+}
+
+
+
+
+
+
+.card{
+    width: 30%;
+}
+
+.card img{
+    width: 100%;
+    height: 408px;
+}
+
+.card button{
+    background-color: #fff7ad;
+    color: #e65cbb;
+    border: none;
+    font-size: 20px;
+    padding: 10px 20px;
+    border-radius: 8px;
+}
+
+img{
+    border-radius: 12px;
+}
+.footer{
+    background-color: #fff7ad;
+    color: #e65cbb;
+    font-size: 18px;
+    padding: 10px;
+    text-align: center;
+}
+
+/*signin/signup*/
+
+.imgcontainer img{
+  text-align: center;
+  margin: 24px 0 12px 0;
+  width: 40%;
+  height: 40%;
+  border-radius: 50%;
+  display: block;
+  margin: 0 auto;
+
+}
+.containerlg{
+      display: block;
+    padding: 20px;
+    margin: 0 auto;
+    background-color: #fff7ad;
+    border-radius: 8px;
+    width: 40%;
+}
+.containerbtnlg{
+padding: 20px;
+margin: 20px;
+background-color:transparent;
+border-radius: 8px;
+text-align: center;
+}
+.containerbtnlg a{
+    text-decoration: none;
+}
+.containerbtnlg p{
+text-align: center;
+color: rgb(4, 14, 88);
+}
+
+
+
+form {
+  border: 3px solid #ffffff;
+  color: #e65cbb;
+}
+
+/* Full-width inputs */
+input[type=text], input[type=password], input[type=email] {
+  width: 100%;
+  padding: 12px 20px;
+  margin: 8px 0;
+  display: inline-block;
+  border: 1px solid #ccc;
+  box-sizing: border-box;
+  border-radius: 8px;
+}
+
+button {
+  background-color:white;
+  color: #e65cbb;
+  padding: 14px 20px;
+  margin: 8px 0;
+  border: none;
+  cursor: pointer;
+  width: 100%;
+  border-radius: 10px;
+}
+/* Add a hover effect for buttons */
+button:hover {
+  opacity: 0.8;
+}
+
+/* Extra style for the cancel button (red) */
+.cancelbtn {
+  width: auto;
+  padding: 10px 18px;
+  background-color: #fff7ad;
+  border-radius: 8px;
+  color: #e65cbb;
+   display: block;
+  margin: 0 auto;
+}
+span.psw {
+  float: right;
+  padding-top: 16px;
+      display: block;
+    float: none;
+}
+
