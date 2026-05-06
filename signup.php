@@ -37,7 +37,7 @@
     </div>
 
 
-     <form action="index.php" onsubmit="return check()" method="post" >
+     <form   method="post" >
     <div class="signup">
           <div class="imgcontainer">
     <img src="glazeyellow.png">
@@ -77,13 +77,16 @@ if ($pwd1 != $pwd2)
 { echo "Incorrect Password! Please try again ";
 die(); }
 $conn= mysqli_connect("localhost", "root", "", "GLAZE");
+if (!$conn) {
+    die("Connection failed: " . mysqli_connect_error());
+}
 $stmt = "INSERT INTO `Customer` ( `name`, `email`, `password`)
-VALUES ('$username', '$email', '$user', '$psw1')";
+VALUES ('$username', '$email', '$psw1')";
 $result = mysqli_query($conn, $stmt);
 if($result==FALSE)
-echo "Error. $name was not added";
+echo "Error. $username was not added";
 else
-echo "$name was successfully added";
+echo "$username was successfully added";
 ?>
     <div class="footer">
         <p>All Rights Reserved &copy; 2025</p>
