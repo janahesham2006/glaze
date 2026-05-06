@@ -36,21 +36,7 @@
             </li>
         </ul>
     </div>
-
-    <div class="home01">
-        <div>
-            <h1>Welcome to Glaze</h1>
-            <br>
-            
-            <p>The gate to which you discover all the Korean skincare products.</p>
-            <p>At Glaze, we bring you the best of Korean skincare, carefully curated, high-quality products that elevate your daily routine. Whether you're a K-beauty enthusiast or just starting your skincare journey, our collection is designed to help you glow from within. Discover glowing skin.</p>
-        
-        </div>
-
-        <img src="glaze pic.1.jpg">
-    </div>
-        <br>
-        <div class="cardsContainer">
+<div class="cardsContainer">
         <div class="card">
             <img src="image.webp" alt="">
             <h2>Cleansing Oil</h2>
@@ -87,10 +73,87 @@
                 <button>Add to Cart</button>
             </a>
         </div>
+        
     </div>
 
+<div class="cardsContainer">
+        <div class="card">
+            <img src="Beauty-of-Joseon-Dynasty-Cream-50g-2.jpg" alt="">
+            <h2>Moisturiser</h2>
+            <p>
+                Beauty of Joseon cream, 50gm. 
+            </p>
+            <h4>350EGP</h4>
 
-<div class="footer">
+            <a href="project cart.html">
+                <button>Add to Cart</button>
+            </a>
+        </div>
+
+        <div class="card">
+            <img src="Apricot blossom peeling gel.webp" alt="">
+            <h2>Peeling Mask</h2>
+            <p>
+                Beauty of Joseon peeling Gel, 50ml. 
+            </p>
+            <h4>250EGP</h4>
+
+            <a href="project cart.html">
+                <button>Add to Cart</button>
+            </a>
+        </div>
+        <div class="card">
+            <img src="beauty-of-joseon-ginseng-retinal-revive-eye-serum-30ml.jpg" alt="">
+            <h2>Eye Serum</h2>
+            <p>
+                Beauty of Joseon eye serum, 30ml. 
+            </p>
+            <h4>370EGP</h4>
+
+            <a href="project cart.html">
+                <button>Add to Cart</button>
+            </a>
+        </div>
+    </div>
+<div class="cardsContainer">
+    <div class="card">
+        <img src="water gel.webp">
+        <h2>Gel Moisturiser</h2>
+        <p>
+            Beauty of Joseon Red Bean water gel moisturiser, 50ml.
+        </p>
+        <h4>350EGP</h4>
+        <a href="project cart.html">
+            <button>Add to Cart</button>
+        </a>
+    </div>
+    <div class="card">
+        <img src="green plum refreshing cleanser.jpg">
+        <h2>Face Cleanser</h2>
+        <p>
+            Beauty of Joseon Green Plum cleanser has a refreshing affect on the skin, 50ml.
+        </p>
+        <h4>400EGP</h4>
+        <a href="project cart.html">
+            <button>Add to Cart</button>
+        </a>
+    </div>
+    <div class="card">
+        <img src="releif sunblock B of J.jpg">
+        <h2>Sunscreen</h2>
+        <p>Beauty of Joseon Sunscreen</p>
+        <h4>375EGP</h4>
+        <a href="project cart.hatml"><button>Add to Cart</button>
+        </a>
+</div>
+</div>
+
+
+
+
+
+
+    <div class="footer">
         <p>All Rights Reserved &copy; 2025</p>
     </div>
 

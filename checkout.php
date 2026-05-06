@@ -8,28 +8,31 @@
 <body>
 
 <div class="nav">
-        <a href="index.html"><img src="glazeyellow.png" alt=""></a>
+        <a href="index.php"><img src="glazeyellow.png" alt=""></a>
         <ul>
             <li>
-                <a href="index.html">Home</a>
+                <a href="index.php">Home</a>
             </li>
             <li>
-                <a href="product.html">Products</a>
+                <a href="product.php">Products</a>
             </li>
             <li>
                 <a href="about.html">About</a>
             </li>
             <li>
-                <a href="contact.html">Contact</a>
+                <a href="contact.php">Contact</a>
             </li>
             <li>
-                <a href="signup.html">Register</a>
+                <a href="signup.php">Register</a>
             </li>
             <li>
-                <a href="login.html">Log In</a>
+                <a href="login.php">Log In</a>
             </li>
             <li>
-                <a href="cart.html"><i class="fa-solid fa-basket-shopping"></i></a>
+                <a href="cart.php"><i class="fa-solid fa-basket-shopping"></i></a>
+            </li>
+            <li>
+                <a href="profile.php"><i class="fa-solid fa-circle-user"></i></a>
             </li>
         </ul>
     </div>

@@ -10,7 +10,7 @@
 <body>
 
 <div class="nav">
-        <a href="index.html"><img src="glazeyellow.png" alt=""></a>
+        <a href="index.php"><img src="glazeyellow.png" alt=""></a>
         <ul>
             <li>
                 <a href="index.php">Home</a>
@@ -19,7 +19,7 @@
                 <a href="product.php">Products</a>
             </li>
             <li>
-                <a href="about.php">About</a>
+                <a href="about.html">About</a>
             </li>
             <li>
                 <a href="contact.php">Contact</a>
@@ -32,6 +32,9 @@
             </li>
             <li>
                 <a href="cart.php"><i class="fa-solid fa-basket-shopping"></i></a>
+            </li>
+            <li>
+                <a href="profile.php"><i class="fa-solid fa-circle-user"></i></a>
             </li>
         </ul>
     </div>
