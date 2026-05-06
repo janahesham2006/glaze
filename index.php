@@ -32,7 +32,7 @@
                 <a href="cart.php"><i class="fa-solid fa-basket-shopping"></i></a>
             </li>
             <li>
-                <a href="profile.php"><i class="fa-solid fa-circle-user"></i></a>
+                <a href="profile.php">Profile</a>
             </li>
         </ul>
     </div>
