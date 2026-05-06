@@ -13,31 +13,31 @@
         <a href="index.html"><img src="glazeyellow.png" alt=""></a>
         <ul>
             <li>
-                <a href="index.html">Home</a>
+                <a href="index.php">Home</a>
             </li>
             <li>
-                <a href="product.html">Products</a>
+                <a href="product.php">Products</a>
             </li>
             <li>
-                <a href="about.html">About</a>
+                <a href="about.php">About</a>
             </li>
             <li>
-                <a href="contact.html">Contact</a>
+                <a href="contact.php">Contact</a>
             </li>
             <li>
-                <a href="signup.html">Register</a>
+                <a href="signup.php">Register</a>
             </li>
             <li>
-                <a href="login.html">Log In</a>
+                <a href="login.php">Log In</a>
             </li>
             <li>
-                <a href="cart.html"><i class="fa-solid fa-basket-shopping"></i></a>
+                <a href="cart.php"><i class="fa-solid fa-basket-shopping"></i></a>
             </li>
         </ul>
     </div>
 
 
-     <form action="index.html" onsubmit="return check()">
+     <form action="index.php" onsubmit="return check()" method="post" >
     <div class="signup">
           <div class="imgcontainer">
     <img src="glazeyellow.png">
@@ -45,16 +45,16 @@
 
   <div class="containerlg">
     <label for="uname"><b>Name</b></label>
-    <input type="text" placeholder="Enter Username" id="uname" required>
+    <input type="text" placeholder="Enter Username" name="uname" required>
 
 <label for="uname"><b>Email</b></label>
-    <input type="email" placeholder="Enter Email" id="email" required>
+    <input type="email" placeholder="Enter Email" name="email" required>
 
     <label for="psw"><b>Password</b></label>
-    <input type="password" placeholder="Enter Password" id="psw" required>
+    <input type="password" placeholder="Enter Password" name="psw" required>
 
  <label for="psw"><b>Confirm Password</b></label>
-    <input type="password" placeholder="Enter Password" id="cpsw" required>
+    <input type="password" placeholder="Enter Password" name="cpsw" required>
 
     <button type="submit">Sign in</button>
     <label>
@@ -68,7 +68,23 @@
   </div>
   <script src="jscript.js"></script>
 </form>
-
+<?php
+$username= $_POST["uname"];
+$email= $_POST["email"];
+$psw1= $_POST["psw"];
+$psw2= $_POST["cpsw"];
+if ($pwd1 != $pwd2)
+{ echo "Incorrect Password! Please try again ";
+die(); }
+$conn= mysqli_connect("localhost", "root", "", "GLAZE");
+$stmt = "INSERT INTO `Customer` ( `name`, `email`, `password`)
+VALUES ('$username', '$email', '$user', '$psw1')";
+$result = mysqli_query($conn, $stmt);
+if($result==FALSE)
+echo "Error. $name was not added";
+else
+echo "$name was successfully added";
+?>
     <div class="footer">
         <p>All Rights Reserved &copy; 2025</p>
     </div>
