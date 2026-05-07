@@ -49,7 +49,7 @@
 <!-- MAIN CONTENT -->
         <main class="admin-content">
             <h1>Dashboard</h1>
-            <p>Welcome, <?php echo htmlspecialchars($_SESSION['name']); ?>!</p>
+            <p>Welcome to GLAZE, <?php echo htmlspecialchars($_SESSION['name']); ?>!</p>
 
             <!-- STATISTICS CARDS -->
             <div class="stats-grid" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 20px; margin: 30px 0;">
