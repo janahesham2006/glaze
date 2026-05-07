@@ -112,7 +112,7 @@
     </div>
 
     <!-- FOOTER -->
-<div class="footer">
+<div class="footer-admin">
         <p>All Rights Reserved &copy; 2025</p>
     </div>
 

@@ -46,7 +46,6 @@
     <div class="admin-container">
         <!-- SIDEBAR NAVIGATION -->
 </div>
-
 <!-- MAIN CONTENT -->
         <main class="admin-content">
             <h1>Dashboard</h1>
@@ -57,23 +56,23 @@
                 
                 <!-- TOTAL USERS CARD -->
                 <div style="background: white; padding: 20px; border-radius: 8px; box-shadow: 0 2px 8px rgba(0,0,0,0.1);">
-                    <h3 style="color: #3498db;">Total Users</h3>
-                    <p style="font-size: 32px; color: #3498db; font-weight: bold;"><?php echo $total_users; ?></p>
-                    <a href="manage_users.php" style="color: #3498db;">Manage Users →</a>
+                    <h3 style="color: #e65cbb;">Total Users</h3>
+                    <p style="font-size: 32px; color: #e65cbb; font-weight: bold;"><?php echo $total_users; ?></p>
+                    <a href="manage_users.php" style="color: #e65cbb; text-decoration: none;">Manage Users <i class="fa-solid fa-circle-arrow-right"></i></a>
                 </div>
 
                 <!-- TOTAL PRODUCTS CARD -->
                 <div style="background: white; padding: 20px; border-radius: 8px; box-shadow: 0 2px 8px rgba(0,0,0,0.1);">
-                    <h3 style="color: #27ae60;">Total Products</h3>
-                    <p style="font-size: 32px; color: #27ae60; font-weight: bold;"><?php echo $total_products; ?></p>
-                    <a href="manage_products.php" style="color: #27ae60;">Manage Products →</a>
+                    <h3 style="color: #e65cbb;">Total Products</h3>
+                    <p style="font-size: 32px; color: #e65cbb; font-weight: bold;"><?php echo $total_products; ?></p>
+                    <a href="manage_products.php" style="color: #e65cbb; text-decoration: none;">Manage Products <i class="fa-solid fa-circle-arrow-right"></i></a>
                 </div>
 
                 <!-- TOTAL ORDERS CARD -->
                 <div style="background: white; padding: 20px; border-radius: 8px; box-shadow: 0 2px 8px rgba(0,0,0,0.1);">
-                    <h3 style="color: #e74c3c;">Total Orders</h3>
-                    <p style="font-size: 32px; color: #e74c3c; font-weight: bold;"><?php echo $total_orders; ?></p>
-                    <a href="manage_orders.php" style="color: #e74c3c;">Manage Orders →</a>
+                    <h3 style="color: #e65cbb;">Total Orders</h3>
+                    <p style="font-size: 32px; color: #e65cbb; font-weight: bold;"><?php echo $total_orders; ?></p>
+                    <a href="manage_orders.php" style="color: #e65cbb; text-decoration: none;">Manage Orders <i class="fa-solid fa-circle-arrow-right"></i></a>
                 </div>
 
             </div>
@@ -82,8 +81,8 @@
             <div style="background: white; padding: 20px; border-radius: 8px; box-shadow: 0 2px 8px rgba(0,0,0,0.1); margin: 20px 0;">
                 <h2>Quick Actions</h2>
                 <p>
-                    <a href="manage_products.php" class="btn btn-primary" style="margin-right: 10px;">Add Product</a>
-                    <a href="manage_users.php" class="btn btn-secondary">View Users</a>
+                    <a href="manage_products.php" class="btn btn-primary" style="margin-right: 10px;text-decoration: none;">Add Product</a>
+                    <a href="manage_users.php" class="btn btn-secondary" style="text-decoration: none;">View Users</a>
                 </p>
             </div>
         </main>
@@ -99,7 +98,7 @@
 </body>
 </html>
 
-   <?php
+ <?php
 /**
  * WEEK 3 - ADMIN DASHBOARD
  * 
