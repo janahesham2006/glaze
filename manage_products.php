@@ -1,3 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GLAZE</title>
+    <link rel="stylesheet" type="text/css" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css">
+</head>
+<body>
+    <!-- HEADER / NAVIGATION -->
+        <div class="nav">
+            <a href="index_admin.php"><img src="glazeyellow.png" alt=""></a>
+        <ul>
+            <li>
+                <a href="index_admin.php">Dashboard</a>
+            </li>
+            <li>
+                <a href="index.php">View Site</a>
+            </li>
+            <li>
+                <a href="profile.php"><i class="fa-solid fa-circle-user"></i></a>
+            </li>
+        </ul>
+    </div>
+
+    <!-- ADMIN LAYOUT -->
+     <div class="navbar">
+        <ul>
+            <li>
+                <h3>Menu</h3>
+            </li>
+            <li>
+                <a href="index_admin.php">Dashboard</a>
+            </li>
+            <li>
+                <a href="manage_products.php">Products</a>
+            </li>
+            <li>
+                <a href="manage_users.php">Users</a>
+            </li>
+            <li>
+                <a href="manage_orders.php">Orders</a>
+            </li>
+        </ul>
+    </div>
+
+        <!-- MAIN CONTENT -->
+        <main class="admin-content">
+            <h1>Product Management</h1>
+
+            <!-- SUCCESS/ERROR MESSAGES -->
+            <?php if ($success): ?>
+                <div class="success-message"><?php echo htmlspecialchars($success); ?></div>
+            <?php endif; ?>
+            <?php if ($error): ?>
+                <div class="error-message"><?php echo htmlspecialchars($error); ?></div>
+            <?php endif; ?>
+
+            <!-- ADD/EDIT FORM -->
+            <div>
+                <h2><?php echo $edit_id ? 'Edit Product' : 'Add New Product'; ?></h2>
+                <div class="containerlg-products">
+                <form method="POST">
+                    <?php if ($edit_id): ?>
+                        <input type="hidden" name="product_id" value="<?php echo htmlspecialchars($edit_id); ?>">
+                    <?php endif; ?>
+
+                    <div class="form-group">
+                        <label for="name">Product Name</label>
+                        <input type="text" id="name" name="name" required value="<?php echo $edit_product ? htmlspecialchars($edit_product['name']) : ''; ?>">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="description">Description</label>
+                        <textarea id="description" name="description" rows="4"><?php echo $edit_product ? htmlspecialchars($edit_product['description']) : ''; ?></textarea>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="price">Price ($)</label>
+                        <input type="number" id="price" name="price" step="0.01" required value="<?php echo $edit_product ? htmlspecialchars($edit_product['price']) : ''; ?>">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="image_url">Image URL</label>
+                        <input type="text" id="image_url" name="image_url" value="<?php echo $edit_product ? htmlspecialchars($edit_product['image_url']) : ''; ?>">
+                    </div>
+
+                    <button type="submit" class="btn btn-primary"><?php echo $edit_id ? 'Update Product' : 'Add Product'; ?></button>
+                    </div>
+                    <?php if ($edit_id): ?>
+                        <a href="manage_products.php" class="btn btn-secondary">Cancel</a>
+                    <?php endif; ?>
+                </form>
+            </div>
+
+            <!-- PRODUCTS TABLE -->
+            <div style="background: white; padding: 20px; border-radius: 8px; box-shadow: 0 2px 8px rgba(0,0,0,0.1);">
+                <h2>All Products</h2>
+
+                <?php if (empty($products)): ?>
+                    <p>No products found.</p>
+                <?php else: ?>
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>ID</th>
+                                <th>Name</th>
+                                <th>Description</th>
+                                <th>Price</th>
+                                <th>Actions</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <?php foreach ($products as $product): ?>
+                                <tr>
+                                    <td><?php echo htmlspecialchars($product['id']); ?></td>
+                                    <td><?php echo htmlspecialchars($product['name']); ?></td>
+                                    <td><?php echo htmlspecialchars(substr($product['description'], 0, 50)); ?></td>
+                                    <td>$<?php echo htmlspecialchars($product['price']); ?></td>
+                                    <td>
+                                        <a href="?edit=<?php echo $product['id']; ?>" class="btn btn-secondary" style="padding: 8px 12px; font-size: 14px;">Edit</a>
+                                        <a href="?delete=<?php echo $product['id']; ?>" class="btn btn-danger" style="padding: 8px 12px; font-size: 14px;" onclick="return confirm('Are you sure?')">Delete</a>
+                                    </td>
+                                </tr>
+                            <?php endforeach; ?>
+                        </tbody>
+                    </table>
+                <?php endif; ?>
+            </div>
+        </main>
+    </div>
+
+    <!-- FOOTER -->
+   <div class="footer-admin">
+        <p>All Rights Reserved &copy; 2025</p>
+    </div>
+
+</body>
+</html>
 <?php
 /**
  * WEEK 3 - PRODUCT MANAGEMENT
@@ -11,12 +151,12 @@
  * Guard: Only admins can access.
  */
 
-require '../backend/auth.php';
-require '../backend/admin_db.php';
+require 'auth.php';
+require 'admin_db.php';
 
 // Check if user is admin
 if (!isAdmin()) {
-    header("Location: ../frontend/login.php");
+    header("Location: login.php");
     exit;
 }
 
@@ -92,129 +232,3 @@ if ($_POST) {
     }
 }
 ?>
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Manage Products - Admin</title>
-    <link rel="stylesheet" href="../frontend/style.css">
-</head>
-<body>
-    <!-- HEADER / NAVIGATION -->
-    <header class="navbar">
-        <div class="navbar-container">
-            <div class="navbar-logo">
-                <a href="index.php">DemoProject Admin</a>
-            </div>
-            <nav class="navbar-menu">
-                <a href="index.php" class="nav-link">Dashboard</a>
-                <a href="../frontend/index.php" class="nav-link">View Site</a>
-                <a href="../frontend/logout.php" class="nav-link logout-btn">Logout</a>
-            </nav>
-        </div>
-    </header>
-
-    <!-- ADMIN LAYOUT -->
-    <div class="admin-container">
-        <!-- SIDEBAR NAVIGATION -->
-        <aside class="admin-sidebar">
-            <h3>Admin Menu</h3>
-            <a href="index.php">Dashboard</a>
-            <a href="manage_products.php" class="active">Products</a>
-            <a href="manage_users.php">Users</a>
-            <a href="manage_orders.php">Orders</a>
-        </aside>
-
-        <!-- MAIN CONTENT -->
-        <main class="admin-content">
-            <h1>Product Management</h1>
-
-            <!-- SUCCESS/ERROR MESSAGES -->
-            <?php if ($success): ?>
-                <div class="success-message"><?php echo htmlspecialchars($success); ?></div>
-            <?php endif; ?>
-            <?php if ($error): ?>
-                <div class="error-message"><?php echo htmlspecialchars($error); ?></div>
-            <?php endif; ?>
-
-            <!-- ADD/EDIT FORM -->
-            <div style="background: white; padding: 20px; border-radius: 8px; box-shadow: 0 2px 8px rgba(0,0,0,0.1); margin-bottom: 30px;">
-                <h2><?php echo $edit_id ? 'Edit Product' : 'Add New Product'; ?></h2>
-                
-                <form method="POST">
-                    <?php if ($edit_id): ?>
-                        <input type="hidden" name="product_id" value="<?php echo htmlspecialchars($edit_id); ?>">
-                    <?php endif; ?>
-
-                    <div class="form-group">
-                        <label for="name">Product Name</label>
-                        <input type="text" id="name" name="name" required value="<?php echo $edit_product ? htmlspecialchars($edit_product['name']) : ''; ?>">
-                    </div>
-
-                    <div class="form-group">
-                        <label for="description">Description</label>
-                        <textarea id="description" name="description" rows="4"><?php echo $edit_product ? htmlspecialchars($edit_product['description']) : ''; ?></textarea>
-                    </div>
-
-                    <div class="form-group">
-                        <label for="price">Price ($)</label>
-                        <input type="number" id="price" name="price" step="0.01" required value="<?php echo $edit_product ? htmlspecialchars($edit_product['price']) : ''; ?>">
-                    </div>
-
-                    <div class="form-group">
-                        <label for="image_url">Image URL</label>
-                        <input type="text" id="image_url" name="image_url" value="<?php echo $edit_product ? htmlspecialchars($edit_product['image_url']) : ''; ?>">
-                    </div>
-
-                    <button type="submit" class="btn btn-primary"><?php echo $edit_id ? 'Update Product' : 'Add Product'; ?></button>
-                    <?php if ($edit_id): ?>
-                        <a href="manage_products.php" class="btn btn-secondary">Cancel</a>
-                    <?php endif; ?>
-                </form>
-            </div>
-
-            <!-- PRODUCTS TABLE -->
-            <div style="background: white; padding: 20px; border-radius: 8px; box-shadow: 0 2px 8px rgba(0,0,0,0.1);">
-                <h2>All Products</h2>
-
-                <?php if (empty($products)): ?>
-                    <p>No products found.</p>
-                <?php else: ?>
-                    <table>
-                        <thead>
-                            <tr>
-                                <th>ID</th>
-                                <th>Name</th>
-                                <th>Description</th>
-                                <th>Price</th>
-                                <th>Actions</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <?php foreach ($products as $product): ?>
-                                <tr>
-                                    <td><?php echo htmlspecialchars($product['id']); ?></td>
-                                    <td><?php echo htmlspecialchars($product['name']); ?></td>
-                                    <td><?php echo htmlspecialchars(substr($product['description'], 0, 50)); ?></td>
-                                    <td>$<?php echo htmlspecialchars($product['price']); ?></td>
-                                    <td>
-                                        <a href="?edit=<?php echo $product['id']; ?>" class="btn btn-secondary" style="padding: 8px 12px; font-size: 14px;">Edit</a>
-                                        <a href="?delete=<?php echo $product['id']; ?>" class="btn btn-danger" style="padding: 8px 12px; font-size: 14px;" onclick="return confirm('Are you sure?')">Delete</a>
-                                    </td>
-                                </tr>
-                            <?php endforeach; ?>
-                        </tbody>
-                    </table>
-                <?php endif; ?>
-            </div>
-        </main>
-    </div>
-
-    <!-- FOOTER -->
-   <div class="footer">
-        <p>All Rights Reserved &copy; 2025</p>
-    </div>
-
-</body>
-</html>

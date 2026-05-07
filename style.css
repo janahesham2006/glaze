@@ -82,7 +82,7 @@ border-radius: 8px;
  body{
     background-color: #ffffff;
     color: #e65cbb;
-    padding: 0;
+  padding: 0;
     margin: 0;
 
 }
@@ -106,7 +106,12 @@ filter: progid: DXImageTransform.Microsoft.gradient( startColorstr="#F2D472", en
     justify-content: space-between;
     align-items: center;
     padding-top: 10px;
-    padding-bottom: 10px;
+    padding-top: 10px;
+    position: fixed;
+  top: 0;
+  width: 100%;
+  height: 80px; /* Adjust based on your design */
+  z-index: 1001;
 }
 
 .nav li {
@@ -122,7 +127,7 @@ filter: progid: DXImageTransform.Microsoft.gradient( startColorstr="#F2D472", en
 }
 .home01{
 	padding: 10px;
-	margin: 20px;
+	margin-top: 100px;
 	display: flex;
     text-align: justify-all;
     font-size: 25px;
@@ -228,7 +233,7 @@ color: rgb(4, 14, 88);
 
 
 form {
-  border: 3px solid #ffffff;
+  border: transparent;
   color: #e65cbb;
 }
 
@@ -276,4 +281,295 @@ span.psw {
 }
 
 /* profile page*/
-        
+        .container {
+            background: white;
+            border-radius: 20px;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+            max-width: 600px;
+            width: 100%;
+            overflow: hidden;
+        }
+
+        .header {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            height: 150px;
+            position: relative;
+        }
+
+        .profile-pic {
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            border: 5px solid white;
+            background: white;
+            position: absolute;
+            bottom: -75px;
+            left: 50%;
+            transform: translateX(-50%);
+            object-fit: cover;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+        }
+
+        .content {
+            padding: 100px 30px 30px;
+            text-align: center;
+        }
+
+        .name {
+            font-size: 28px;
+            font-weight: bold;
+            color: #333;
+            margin-bottom: 5px;
+        }
+
+        .title {
+            font-size: 16px;
+            color: #667eea;
+            font-weight: 600;
+            margin-bottom: 15px;
+        }
+
+        .bio {
+            color: #666;
+            font-size: 14px;
+            line-height: 1.6;
+            margin-bottom: 25px;
+        }
+
+        .stats {
+            display: flex;
+            justify-content: space-around;
+            padding: 25px 0;
+            border-top: 1px solid #eee;
+            border-bottom: 1px solid #eee;
+            margin-bottom: 25px;
+        }
+
+        .stat {
+            text-align: center;
+        }
+
+        .stat-number {
+            font-size: 24px;
+            font-weight: bold;
+            color: #667eea;
+            display: block;
+        }
+
+        .stat-label {
+            font-size: 12px;
+            color: #999;
+            text-transform: uppercase;
+            margin-top: 5px;
+        }
+
+        .info-section {
+            text-align: left;
+            margin-bottom: 25px;
+        }
+
+        .info-label {
+            font-size: 12px;
+            color: #999;
+            text-transform: uppercase;
+            font-weight: 600;
+            margin-bottom: 10px;
+        }
+
+        .info-item {
+            display: flex;
+            align-items: center;
+            margin-bottom: 12px;
+            color: #555;
+            font-size: 14px;
+        }
+
+        .info-icon {
+            width: 20px;
+            height: 20px;
+            margin-right: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #667eea;
+        }
+
+        .buttons {
+            display: flex;
+            gap: 10px;
+            margin-top: 25px;
+        }
+
+        .btn {
+            flex: 1;
+            padding: 12px 20px;
+            border: none;
+            border-radius: 8px;
+            font-size: 14px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .btn-primary {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 20px rgba(102, 126, 234, 0.3);
+        }
+
+        .btn-secondary {
+            background: #f0f0f0;
+            color: #333;
+            border: 1px solid #ddd;
+        }
+
+        .btn-secondary:hover {
+            background: #e8e8e8;
+        }
+
+        .social-links {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            margin-top: 20px;
+        }
+
+        .social-link {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background: #f0f0f0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-decoration: none;
+            color: #667eea;
+            transition: all 0.3s ease;
+            font-size: 18px;
+        }
+
+        .social-link:hover {
+            background: #667eea;
+            color: white;
+            transform: translateY(-3px);
+        }
+
+        @media (max-width: 480px) {
+            .content {
+                padding: 100px 20px 20px;
+            }
+
+            .name {
+                font-size: 24px;
+            }
+
+            .stats {
+                padding: 20px 0;
+            }
+
+            .buttons {
+                flex-direction: column;
+            }
+        }
+
+
+/* admin homepage */
+.admin-container {
+    display: flex;
+    gap: 0;
+}
+
+.admin-content {
+  margin-left: 200px; /* This must match the sidebar width EXACTLY */
+  padding: 40px;      /* This controls the gap inside the white area */
+  margin-top: 80px;   /* This pushes the content below the header */
+}
+
+/* offcanvas side bar */
+.navbar{
+   background: hsla(46, 83%, 70%, 1);
+
+    color:  #e65cbb;
+    display:grid;
+    justify-content:left;
+    align-items: center;
+    padding-top: 1px; 
+    height: calc(100vh - 80px);
+    width: 200px;
+    position: fixed;
+    top: 80px; 
+  left: 0;
+  z-index: 1000;
+}
+.navbar ul{
+    list-style-type: none; /* Removes the bullet points */
+  padding: 0;            /* Removes default left padding */
+  margin: 10px;             /* Removes default margins */
+  width: 100%;
+}
+.navbar li {
+width: 100%; 
+}
+
+.navbar li a{
+  color: #e65cbb;
+  display: block;        /* Makes the whole area clickable, not just the text */
+  padding: 10px 20px;    /* Adds consistent spacing inside the links */
+  text-decoration: none; /* Removes the underline */
+  text-align: left;
+}
+
+.navbar h3, 
+.navbar ul {
+  margin-top: 0;
+  padding-top: 0;
+}
+
+.footer-admin{
+    background-color: hsla(46, 83%, 70%, 1);
+    color: #e65cbb;
+position: fixed;
+  bottom: 0;
+  /* This is the magic: Screen width minus sidebar width */
+  left: 200px; 
+  width: calc(100% - 200px);        /* Matches your sidebar width */
+  padding: 10px;
+  text-align: center;
+  z-index: 999;
+}
+/* product form */
+textarea {
+  width: 100%;
+  padding: 12px 20px;
+  margin: 8px 0;
+  display: inline-block;
+  border: 1px solid #ccc;
+  box-sizing: border-box;
+  border-radius: 8px;
+}
+.containerlg-products{
+      display: block;
+    padding: 20px;
+    margin: 20px auto;
+    background-color: #fff7ad;
+    border-radius: 8px;
+    width: 40%;
+}
+.containerbtnlg-products{
+padding: 20px;
+margin: 20px;
+background-color:transparent;
+border-radius: 8px;
+text-align: center;
+}
+.containerbtnlg-products a{
+    text-decoration: none;
+}
+.containerbtnlg-products p{
+text-align: center;
+color: rgb(4, 14, 88);
+}

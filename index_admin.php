@@ -1,36 +1,3 @@
-   <?php
-/**
- * WEEK 3 - ADMIN DASHBOARD
- * 
- * This page displays the admin dashboard with summary statistics:
- * - Total number of users
- * - Total number of products
- * - Total number of orders
- * 
- * Guard: Only admins can access. Redirects to login if not admin.
- */
-
-require 'auth.php';
-require 'admin_db.php';
-
-// Check if user is admin
-// If not, redirect to login page
-if (!isAdmin()) {
-    header("Location:login.php");
-    exit;
-}
-
-// Get statistics for the dashboard
-$users = getAllUsers();
-$products = getAllProducts();
-$orders = getAllOrders();
-
-// Count totals
-$total_users = count($users);
-$total_products = count($products);
-$total_orders = count($orders);
-?>
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -42,9 +9,8 @@ $total_orders = count($orders);
 </head>
 <body>
     <!-- HEADER / NAVIGATION -->
-    <header class="navbar">
         <div class="nav">
-        <a href="index_admin.php"><img src="glazeyellow.png" alt=""></a>
+            <a href="index_admin.php"><img src="glazeyellow.png" alt=""></a>
         <ul>
             <li>
                 <a href="index_admin.php">Dashboard</a>
@@ -57,20 +23,31 @@ $total_orders = count($orders);
             </li>
         </ul>
     </div>
-    </header>
-
     <!-- ADMIN LAYOUT -->
+     <div class="navbar">
+        <ul>
+            <li>
+                <h3>Menu</h3>
+            </li>
+            <li>
+                <a href="index_admin.php">Dashboard</a>
+            </li>
+            <li>
+                <a href="manage_products.php">Products</a>
+            </li>
+            <li>
+                <a href="manage_users.php">Users</a>
+            </li>
+            <li>
+                <a href="manage_orders.php">Orders</a>
+            </li>
+        </ul>
+    </div>
     <div class="admin-container">
         <!-- SIDEBAR NAVIGATION -->
-        <aside class="admin-sidebar">
-            <h3><i class="fa-solid fa-bars"></i></h3>
-            <a href="index.php" class="active">Dashboard</a>
-            <a href="manage_products.php">Products</a>
-            <a href="manage_users.php">Users</a>
-            <a href="manage_orders.php">Orders</a>
-        </aside>
+</div>
 
-        <!-- MAIN CONTENT -->
+<!-- MAIN CONTENT -->
         <main class="admin-content">
             <h1>Dashboard</h1>
             <p>Welcome, <?php echo htmlspecialchars($_SESSION['name']); ?>!</p>
@@ -112,10 +89,45 @@ $total_orders = count($orders);
         </main>
     </div>
 
+<script src="script.js"></script>
+
     <!-- FOOTER -->
-<div class="footer">
+<div class="footer-admin">
         <p>All Rights Reserved &copy; 2025</p>
     </div>
 
 </body>
 </html>
+
+   <?php
+/**
+ * WEEK 3 - ADMIN DASHBOARD
+ * 
+ * This page displays the admin dashboard with summary statistics:
+ * - Total number of users
+ * - Total number of products
+ * - Total number of orders
+ * 
+ * Guard: Only admins can access. Redirects to login if not admin.
+ */
+
+require 'auth.php';
+require 'admin_db.php';
+
+// Check if user is admin
+// If not, redirect to login page
+if (!isAdmin()) {
+    header("Location:login.php");
+    exit;
+}
+
+// Get statistics for the dashboard
+$users = getAllUsers();
+$products = getAllProducts();
+$orders = getAllOrders();
+
+// Count totals
+$total_users = count($users);
+$total_products = count($products);
+$total_orders = count($orders);
+?>

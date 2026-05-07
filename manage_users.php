@@ -1,66 +1,49 @@
-<?php
-require '../backend/auth.php';
-require '../backend/admin_db.php';
-
-// Check if user is admin
-if (!isAdmin()) {
-    header("Location: ../frontend/login.php");
-    exit;
-}
-
-// Initialize variables
-$error = '';
-$success = '';
-
-// Get all users
-$users = getAllUsers();
-
-// Handle DELETE user
-if (isset($_GET['delete']) && is_numeric($_GET['delete'])) {
-    // Prevent deleting the current admin user
-    if ($_GET['delete'] == $_SESSION['user_id']) {
-        $error = "You cannot delete your own account";
-    } else {
-        if (deleteUser($_GET['delete'])) {
-            $success = "User deleted successfully!";
-            $users = getAllUsers(); // Refresh the list
-        } else {
-            $error = "Failed to delete user";
-        }
-    }
-}
-?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Manage Users - Admin</title>
-    <link rel="stylesheet" href="../frontend/style.css">
+    <title>GLAZE</title>
+    <link rel="stylesheet" type="text/css" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css">
 </head>
 <body>
     <!-- HEADER / NAVIGATION -->
-    <header class="navbar">
-        <div class="navbar-container">
-            <div class="navbar-logo">
-                <a href="index.php">DemoProject Admin</a>
-            </div>
-            <nav class="navbar-menu">
-                <a href="index.php" class="nav-link">Dashboard</a>
-                <a href="../frontend/index.php" class="nav-link">View Site</a>
-                <a href="../frontend/logout.php" class="nav-link logout-btn">Logout</a>
-            </nav>
-        </div>
-    </header>
-    <div class="admin-container">
-        <!-- SIDEBAR NAVIGATION -->
-        <aside class="admin-sidebar">
-            <h3>Admin Menu</h3>
-            <a href="index.php">Dashboard</a>
-            <a href="manage_products.php">Products</a>
-            <a href="manage_users.php" class="active">Users</a>
-            <a href="manage_orders.php">Orders</a>
-        </aside>
+        <div class="nav">
+            <a href="index_admin.php"><img src="glazeyellow.png" alt=""></a>
+        <ul>
+            <li>
+                <a href="index_admin.php">Dashboard</a>
+            </li>
+            <li>
+                <a href="index.php">View Site</a>
+            </li>
+            <li>
+                <a href="profile.php"><i class="fa-solid fa-circle-user"></i></a>
+            </li>
+        </ul>
+    </div>
+
+    <!-- ADMIN LAYOUT -->
+     <div class="navbar">
+        <ul>
+            <li>
+                <h3>Menu</h3>
+            </li>
+            <li>
+                <a href="index_admin.php">Dashboard</a>
+            </li>
+            <li>
+                <a href="manage_products.php">Products</a>
+            </li>
+            <li>
+                <a href="manage_users.php">Users</a>
+            </li>
+            <li>
+                <a href="manage_orders.php">Orders</a>
+            </li>
+        </ul>
+    </div>
 
         <!-- MAIN CONTENT -->
         <main class="admin-content">
@@ -127,3 +110,35 @@ if (isset($_GET['delete']) && is_numeric($_GET['delete'])) {
 
 </body>
 </html>
+<?php
+require 'auth.php';
+require 'admin_db.php';
+
+// Check if user is admin
+if (!isAdmin()) {
+    header("Location:login.php");
+    exit;
+}
+
+// Initialize variables
+$error = '';
+$success = '';
+
+// Get all users
+$users = getAllUsers();
+
+// Handle DELETE user
+if (isset($_GET['delete']) && is_numeric($_GET['delete'])) {
+    // Prevent deleting the current admin user
+    if ($_GET['delete'] == $_SESSION['user_id']) {
+        $error = "You cannot delete your own account";
+    } else {
+        if (deleteUser($_GET['delete'])) {
+            $success = "User deleted successfully!";
+            $users = getAllUsers(); // Refresh the list
+        } else {
+            $error = "Failed to delete user";
+        }
+    }
+}
+?>

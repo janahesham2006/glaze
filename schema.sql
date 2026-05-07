@@ -3,8 +3,8 @@
 -- Run this file in phpMyAdmin to set up the database
 
 -- Create the database if it doesn't exist
-CREATE DATABASE IF NOT EXISTS demo_db;
-USE demo_db;
+CREATE DATABASE IF NOT EXISTS GLAZE;
+USE GLAZE;
 
 -- ===== USERS TABLE =====
 -- Stores all user account information
