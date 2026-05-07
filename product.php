@@ -148,11 +148,6 @@
 </div>
 </div>
 
-
-
-
-
-
     <div class="footer">
         <p>All Rights Reserved &copy; 2025</p>
     </div>
@@ -162,14 +157,6 @@
 </html>
 
 <?php
-/**
- * WEEK 2 - PRODUCTS PAGE
- * 
- * This page displays all products in a grid layout.
- * It fetches products from the database using getAllProducts() function.
- * Users can view product details: name, description, price.
- */
-
 require 'auth.php';
 require 'products_db.php';
 

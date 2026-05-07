@@ -120,16 +120,6 @@
 </html>
 
 <?php
-/**
- * WEEK 3 - ORDER MANAGEMENT
- * 
- * Admin page for managing orders:
- * - View all orders with user and product details
- * - Update order status (pending, completed, cancelled)
- * 
- * Guard: Only admins can access.
- */
-
 require 'auth.php';
 require 'admin_db.php';
 

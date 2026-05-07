@@ -42,11 +42,11 @@ CREATE TABLE IF NOT EXISTS Customer_order (
 
 -- Insert admin user (password: admin123)
 INSERT INTO Customer (`Name`, `Email`, `password`, `role`) VALUES
-('Admin', 'admin@demo.com', 'admin123', 'admin');
+('Admin', 'admin@gmail.com', 'admin123', 'admin');
 
 -- Insert regular user (password: user123)
 INSERT INTO Customer (`Name`, `Email`, `password`, `role`) VALUES
-('John Doe', 'john@demo.com', 'user123', 'user');
+('Souhayla', 'sou@gmail.com', 'user123', 'user');
 
 -- Insert sample products
 INSERT INTO Product (`Product_Name`, `Key_Ingredients`, `price`, `image_url`) VALUES

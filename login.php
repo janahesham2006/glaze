@@ -76,13 +76,6 @@
 </body>
 </html>
 <?php
-/**
- * LOGIN PAGE - GATEWAY
- * 
- * This page displays the login form.
- * Form submissions are handled by backend/login_handler.php
- */
-
 require 'auth.php';
 
 // Redirect if already logged in

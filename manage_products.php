@@ -139,17 +139,6 @@
 </body>
 </html>
 <?php
-/**
- * WEEK 3 - PRODUCT MANAGEMENT
- * 
- * Admin page for full CRUD operations on products:
- * - View all products in a table
- * - Add new product
- * - Edit existing product
- * - Delete product
- * 
- * Guard: Only admins can access.
- */
 
 require 'auth.php';
 require 'admin_db.php';

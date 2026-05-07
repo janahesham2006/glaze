@@ -99,16 +99,6 @@
 </html>
 
  <?php
-/**
- * WEEK 3 - ADMIN DASHBOARD
- * 
- * This page displays the admin dashboard with summary statistics:
- * - Total number of users
- * - Total number of products
- * - Total number of orders
- * 
- * Guard: Only admins can access. Redirects to login if not admin.
- */
 
 require 'auth.php';
 require 'admin_db.php';
