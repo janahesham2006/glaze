@@ -7,7 +7,7 @@ if (session_status() === PHP_SESSION_NONE) {
 function loginUser($email, $password) {
     global $conn;
 
-    $query = "SELECT id, name, email, password, role FROM users WHERE email = '$email'";
+    $query = "SELECT `Customer_ID`, `Name`, `Email`, `password`, `role` FROM `Customer` WHERE `Email` = '$email'";
     $result = mysqli_query($conn, $query);
     
     // If no user found with this email, login fails
@@ -36,7 +36,7 @@ function registerUser($name, $email, $password) {
     global $conn;
     
     // Check if email already exists
-    $checkQuery = "SELECT id FROM users WHERE email = '$email'";
+    $checkQuery = "SELECT `Customer_ID` FROM `Customer` WHERE `Email` = '$email'";
     $checkResult = mysqli_query($conn, $checkQuery);
     
     // If email already exists, registration fails
@@ -45,7 +45,7 @@ function registerUser($name, $email, $password) {
     }
 
 
-    $query = "INSERT INTO users (name, email, password, role) VALUES ('$name', '$email', '$password', 'user')";
+    $query = "INSERT INTO `Customer` (`Customer_ID`, `Name`, `Email`, `password`, `role`) VALUES ('$name', '$email', '$password', 'user')";
     
     // Execute the query
     if (mysqli_query($conn, $query)) {

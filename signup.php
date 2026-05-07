@@ -42,13 +42,21 @@
 
      <form   method="post" >
     <div class="signup">
+
+                <!-- Display error message if registration failed -->
+                <?php if ($error): ?>
+                    <div class="error-message">
+                        <?php echo htmlspecialchars($error); ?>
+                    </div>
+                <?php endif; ?>
+
           <div class="imgcontainer">
     <img src="glazeyellow.png">
   </div>
 
   <div class="containerlg">
     <label for="uname"><b>Name</b></label>
-    <input type="text" placeholder="Enter Username" name="uname" required>
+    <input type="text" placeholder="Enter Username" name="username" required>
 
 <label for="uname"><b>Email</b></label>
     <input type="email" placeholder="Enter Email" name="email" required>
@@ -85,3 +93,21 @@ die(); }
     </div>
 </body>
 </html>
+
+<?php
+require 'auth.php';
+
+// Redirect if already logged in
+if (isLoggedIn()) {
+    if (isAdmin()) {
+        header("Location: index_admin.php");
+    } else {
+        header("Location: product.php");
+    }
+    exit;
+}
+
+// Get error message from session if exists
+$error = $_SESSION['register_error'] ?? '';
+unset($_SESSION['register_error']);
+?>

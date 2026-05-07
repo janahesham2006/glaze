@@ -11,22 +11,22 @@ require 'auth.php';
 // Check if form was submitted via POST
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     // Get form data
-    $name = $_POST['name'] ?? '';
+    $name = $_POST['username'] ?? '';
     $email = $_POST['email'] ?? '';
-    $password = $_POST['password'] ?? '';
-    $confirm_password = $_POST['confirm_password'] ?? '';
+    $password = $_POST['psw'] ?? '';
+    $confirm_password = $_POST['cpsw'] ?? '';
 
     // Validate: passwords must match
     if ($password !== $confirm_password) {
         $_SESSION['register_error'] = "Passwords do not match";
-        header("Location: ../frontend/register.php");
+        header("Location: signup.php");
         exit;
     }
 
     // Validate: all fields must be filled
     if (empty($name) || empty($email) || empty($password)) {
         $_SESSION['register_error'] = "All fields are required";
-        header("Location: ../frontend/register.php");
+        header("Location: signup.php");
         exit;
     }
 
@@ -35,17 +35,17 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         // Registration successful! Auto-login
         loginUser($email, $password);
         // Redirect to products page
-        header("Location: ../frontend/products.php");
+        header("Location: product.php");
         exit;
     } else {
         // Registration failed (email exists)
         $_SESSION['register_error'] = "Email already exists. Please use a different email or login.";
-        header("Location: ../frontend/register.php");
+        header("Location: signup.php");
         exit;
     }
 }
 
 // If no POST data, redirect to register page
-header("Location: ../frontend/register.php");
+header("Location: signup.php");
 exit;
 ?>

@@ -41,13 +41,19 @@
 
      <form action="index.html">
   <div class="login">
+                    <!-- Display error message if login failed -->
+                <?php if ($error): ?>
+                    <div class="error-message">
+                        <?php echo htmlspecialchars($error); ?>
+                    </div>
+                <?php endif; ?>
      <div class="imgcontainer">
     <img src="glazeyellow.png">
   </div>
 
   <div class="containerlg">
-    <label for="uname"><b>Username</b></label>
-    <input type="text" placeholder="Enter Username" name="uname" required>
+<label for="uname"><b>Email</b></label>
+    <input type="email" placeholder="Enter Email" name="email" required>
 
     <label for="psw"><b>Password</b></label>
     <input type="password" placeholder="Enter Password" name="psw" required>
@@ -69,3 +75,27 @@
     </div>
 </body>
 </html>
+<?php
+/**
+ * LOGIN PAGE - GATEWAY
+ * 
+ * This page displays the login form.
+ * Form submissions are handled by backend/login_handler.php
+ */
+
+require 'auth.php';
+
+// Redirect if already logged in
+if (isLoggedIn()) {
+    if (isAdmin()) {
+        header("Location:index_admin.php");
+    } else {
+        header("Location: product.php");
+    }
+    exit;
+}
+
+// Get error message from session if exists
+$error = $_SESSION['login_error'] ?? '';
+unset($_SESSION['login_error']);
+?>

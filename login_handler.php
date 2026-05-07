@@ -5,28 +5,28 @@ require 'auth.php';
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     // Get email and password from form
     $email = $_POST['email'] ?? '';
-    $password = $_POST['password'] ?? '';
+    $password = $_POST['psw'] ?? '';
     
     // Try to login
     if (loginUser($email, $password)) {
         // Login successful! Check if user is admin
         if (isAdmin()) {
             // Redirect admin to admin dashboard
-            header("Location: ../admin/index.php");
+            header("Location: index_admin.php");
         } else {
             // Redirect regular user to products page
-            header("Location: ../frontend/products.php");
+            header("Location: product.php");
         }
         exit;
     } else {
         // Login failed - redirect back to login page with error
         $_SESSION['login_error'] = "Invalid email or password";
-        header("Location: ../frontend/login.php");
+        header("Location: login.php");
         exit;
     }
 }
 
 // If no POST data, redirect to login page
-header("Location: ../frontend/login.php");
+header("Location: login.php");
 exit;
 ?>

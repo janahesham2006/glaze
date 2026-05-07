@@ -24,7 +24,7 @@ function getUserById($id) {
     global $conn;
     
     // SELECT user information WHERE id matches
-    $query = "SELECT id, name, email, role FROM users WHERE id = '$id' LIMIT 1";
+    $query = "SELECT `Customer_ID`, `Name`, `Email`, `password`, `role` FROM `Customer` WHERE `Customer_ID` = '$id' LIMIT 1";
     
     // Execute the query
     $result = mysqli_query($conn, $query);
@@ -57,18 +57,18 @@ function updateUser($id, $name, $email, $password = '') {
 
     
     // Start with name and email in the UPDATE query
-    $query = "UPDATE users SET name = '$name', email = '$email'";
+    $query = "UPDATE `Customer` SET `Name` = '$name', `Email` = '$email'";
     
     // Only update password if a new password was provided
     if (!empty($password)) {
         // Store the password as plain text (not hashed)
         // NOTE: In production, you should ALWAYS hash passwords for security!
         // Add password to the UPDATE query
-        $query .= ", password = '$password'";
+        $query .= ", `password`= '$password'";
     }
     
     // Complete the query with WHERE clause
-    $query .= " WHERE id = '$id'";
+    $query .= " WHERE `Customer_ID` = '$id'";
     
     // Execute the update query
     if (mysqli_query($conn, $query)) {

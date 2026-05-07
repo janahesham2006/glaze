@@ -11,7 +11,7 @@ require 'user_db.php';
 
 // Check if user is logged in
 if (!isLoggedIn()) {
-    header("Location: ../frontend/login.php");
+    header("Location: login.php");
     exit;
 }
 
@@ -20,20 +20,20 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     // Get form data
     $name = $_POST['name'] ?? '';
     $email = $_POST['email'] ?? '';
-    $password = $_POST['password'] ?? '';
-    $confirm_password = $_POST['confirm_password'] ?? '';
+    $password = $_POST['psw'] ?? '';
+    $confirm_password = $_POST['cpsw'] ?? '';
 
     // Validate: name and email must be provided
     if (empty($name) || empty($email)) {
         $_SESSION['profile_error'] = "Name and email are required";
-        header("Location: ../frontend/profile.php");
+        header("Location: profile.php");
         exit;
     }
 
     // If password is provided, check that both passwords match
     if (!empty($password) && $password !== $confirm_password) {
         $_SESSION['profile_error'] = "Passwords do not match";
-        header("Location: ../frontend/profile.php");
+        header("Location: profile.php");
         exit;
     }
 
@@ -43,16 +43,16 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         $_SESSION['name'] = $name;
         $_SESSION['email'] = $email;
         $_SESSION['profile_success'] = "Profile updated successfully!";
-        header("Location: ../frontend/profile.php");
+        header("Location: profile.php");
         exit;
     } else {
         $_SESSION['profile_error'] = "Failed to update profile";
-        header("Location: ../frontend/profile.php");
+        header("Location: profile.php");
         exit;
     }
 }
 
 // If no POST data, redirect to profile page
-header("Location: ../frontend/profile.php");
+header("Location: profile.php");
 exit;
 ?>

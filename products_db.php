@@ -7,7 +7,7 @@ function getAllProducts() {
     
     // SELECT all columns (*) FROM products table
     // ORDER BY id to get them in the order they were created
-    $query = "SELECT id, name, description, price, image_url FROM products ORDER BY id";
+    $query = "SELECT `Product_ID`, `Product_Name`, `Key_Ingredients`, `price`, `image_url` FROM `Product` ORDER BY `Product_ID`";
     
     // Execute the query
     $result = mysqli_query($conn, $query);
@@ -29,7 +29,7 @@ function getAllProducts() {
 function getProductById($id) {
     global $conn;
 
-    $query = "SELECT id, name, description, price, image_url FROM products WHERE id = '$id' LIMIT 1";
+    $query = "SELECT `Product_ID`, `Product_Name`, `Key_Ingredients`, `price`, `image_url` FROM `Product` WHERE `Product_ID` = '$id' LIMIT 1";
     
     // Execute the query
     $result = mysqli_query($conn, $query);

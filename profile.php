@@ -71,12 +71,12 @@
 
                     <div class="form-group">
                         <label for="password">New Password</label>
-                        <input type="password" id="password" name="password" placeholder="Enter new password or leave blank">
+                        <input type="password" id="password" name="psw" placeholder="Enter new password or leave blank">
                     </div>
 
                     <div class="form-group">
                         <label for="confirm_password">Confirm Password</label>
-                        <input type="password" id="confirm_password" name="confirm_password" placeholder="Confirm new password">
+                        <input type="password" id="confirm_password" name="cpsw" placeholder="Confirm new password">
                     </div>
 
                     <button type="submit" class="btn btn-primary">Update Profile</button>
@@ -101,8 +101,8 @@
  * Form submissions are handled by backend/profile_handler.php
  */
 
-require '../backend/auth.php';
-require '../backend/user_db.php';
+require 'auth.php';
+require 'user_db.php';
 
 // Check if user is logged in
 if (!isLoggedIn()) {
@@ -118,4 +118,21 @@ $success = $_SESSION['profile_success'] ?? '';
 $error = $_SESSION['profile_error'] ?? '';
 unset($_SESSION['profile_success']);
 unset($_SESSION['profile_error']);
+?>
+<?php
+/**
+ * WEEK 2 - LOGOUT PAGE
+ * 
+ * This page logs out the current user and redirects to login page.
+ * It calls logoutUser() from auth.php to destroy the session.
+ */
+
+require 'auth.php';
+
+// Call the logout function to destroy session
+logoutUser();
+
+// Redirect to login page
+header("Location: login.php");
+exit;
 ?>
