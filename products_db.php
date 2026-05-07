@@ -3,14 +3,14 @@ require 'db.php';
 
 
 function getAllProducts() {
-    global $connection;
+    global $conn;
     
     // SELECT all columns (*) FROM products table
     // ORDER BY id to get them in the order they were created
     $query = "SELECT id, name, description, price, image_url FROM products ORDER BY id";
     
     // Execute the query
-    $result = mysqli_query($connection, $query);
+    $result = mysqli_query($conn, $query);
     
     // Create an array to store all products
     $products = array();
@@ -27,12 +27,12 @@ function getAllProducts() {
 }
 
 function getProductById($id) {
-    global $connection;
+    global $conn;
 
     $query = "SELECT id, name, description, price, image_url FROM products WHERE id = '$id' LIMIT 1";
     
     // Execute the query
-    $result = mysqli_query($connection, $query);
+    $result = mysqli_query($conn, $query);
     
     // Check if a product was found
     if (mysqli_num_rows($result) === 0) {

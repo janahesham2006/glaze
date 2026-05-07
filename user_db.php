@@ -21,13 +21,13 @@ require 'db.php';
  * This function retrieves a user's information from the database.
  */
 function getUserById($id) {
-    global $connection;
+    global $conn;
     
     // SELECT user information WHERE id matches
     $query = "SELECT id, name, email, role FROM users WHERE id = '$id' LIMIT 1";
     
     // Execute the query
-    $result = mysqli_query($connection, $query);
+    $result = mysqli_query($conn, $query);
     
     // Check if user was found
     if (mysqli_num_rows($result) === 0) {
@@ -51,7 +51,7 @@ function getUserById($id) {
  * If password is empty, the existing password is kept.
  */
 function updateUser($id, $name, $email, $password = '') {
-    global $connection;
+    global $conn;
     
     // Build the UPDATE query
 
@@ -71,7 +71,7 @@ function updateUser($id, $name, $email, $password = '') {
     $query .= " WHERE id = '$id'";
     
     // Execute the update query
-    if (mysqli_query($connection, $query)) {
+    if (mysqli_query($conn, $query)) {
         return true;
     }
     

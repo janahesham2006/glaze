@@ -79,17 +79,6 @@ $psw2= $_POST["cpsw"];
 if ($pwd1 != $pwd2)
 { echo "Incorrect Password! Please try again ";
 die(); }
-$conn= mysqli_connect("localhost", "root", "", "GLAZE");
-if (!$conn) {
-    die("Connection failed: " . mysqli_connect_error());
-}
-$stmt = "INSERT INTO `Customer` ( `name`, `email`, `password`)
-VALUES ('$username', '$email', '$psw1')";
-$result = mysqli_query($conn, $stmt);
-if($result==FALSE)
-echo "Error. $username was not added";
-else
-echo "$username was successfully added";
 ?>
     <div class="footer">
         <p>All Rights Reserved &copy; 2025</p>

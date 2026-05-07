@@ -41,11 +41,11 @@
      <div class="imgcontainer">
     <img src="image.webp">
   </div>
-
   <div class="containerlg">
     <b>Name:</b> bfkdkjfjf <br><br>
     <b>Email:</b> bfkdkjfjf@fhbf <br><br>
     <b>Password:</b> bfkdkjfjf <br><br>
+    <a href="index.php"><button>Log Out</button></a>
   </div>
   </div>
 </body>

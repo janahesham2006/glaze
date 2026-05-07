@@ -121,10 +121,9 @@ if (isset($_GET['delete']) && is_numeric($_GET['delete'])) {
     </div>
 
     <!-- FOOTER -->
-    <footer class="footer">
-        <div class="container">
-            <p>&copy; 2026 Demo Project - Admin</p>
-        </div>
-    </footer>
+  <div class="footer">
+        <p>All Rights Reserved &copy; 2025</p>
+    </div>
+
 </body>
 </html>

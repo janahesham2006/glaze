@@ -1,12 +1,4 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>GLAZE</title>
-</head>
-<body>
-    <?php
+   <?php
 /**
  * WEEK 3 - ADMIN DASHBOARD
  * 
@@ -18,13 +10,13 @@
  * Guard: Only admins can access. Redirects to login if not admin.
  */
 
-require '../backend/auth.php';
-require '../backend/admin_db.php';
+require 'auth.php';
+require 'admin_db.php';
 
 // Check if user is admin
 // If not, redirect to login page
 if (!isAdmin()) {
-    header("Location: ../frontend/login.php");
+    header("Location:login.php");
     exit;
 }
 
@@ -38,34 +30,40 @@ $total_users = count($users);
 $total_products = count($products);
 $total_orders = count($orders);
 ?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Admin Dashboard - Demo Project</title>
-    <link rel="stylesheet" href="../frontend/style.css">
+    <title>GLAZE</title>
+    <link rel="stylesheet" type="text/css" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css">
 </head>
 <body>
     <!-- HEADER / NAVIGATION -->
     <header class="navbar">
-        <div class="navbar-container">
-            <div class="navbar-logo">
-                <a href="index.php">DemoProject Admin</a>
-            </div>
-            <nav class="navbar-menu">
-                <a href="index.php" class="nav-link active">Dashboard</a>
-                <a href="../frontend/index.php" class="nav-link">View Site</a>
-                <a href="../frontend/logout.php" class="nav-link logout-btn">Logout</a>
-            </nav>
-        </div>
+        <div class="nav">
+        <a href="index_admin.php"><img src="glazeyellow.png" alt=""></a>
+        <ul>
+            <li>
+                <a href="index_admin.php">Dashboard</a>
+            </li>
+            <li>
+                <a href="index.php">View Site</a>
+            </li>
+            <li>
+                <a href="profile.php"><i class="fa-solid fa-circle-user"></i></a>
+            </li>
+        </ul>
+    </div>
     </header>
 
     <!-- ADMIN LAYOUT -->
     <div class="admin-container">
         <!-- SIDEBAR NAVIGATION -->
         <aside class="admin-sidebar">
-            <h3>Admin Menu</h3>
+            <h3><i class="fa-solid fa-bars"></i></h3>
             <a href="index.php" class="active">Dashboard</a>
             <a href="manage_products.php">Products</a>
             <a href="manage_users.php">Users</a>
@@ -115,10 +113,9 @@ $total_orders = count($orders);
     </div>
 
     <!-- FOOTER -->
-    <footer class="footer">
-        <div class="container">
-            <p>&copy; 2026 Demo Project - Admin Dashboard</p>
-        </div>
-    </footer>
+<div class="footer">
+        <p>All Rights Reserved &copy; 2025</p>
+    </div>
+
 </body>
 </html>

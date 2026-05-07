@@ -43,7 +43,7 @@ if (isset($_POST['order_id']) && isset($_POST['status'])) {
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Manage Orders - Admin</title>
+    <title>GLAZE</title>
     <link rel="stylesheet" href="../frontend/style.css">
 </head>
 <body>
@@ -139,11 +139,10 @@ if (isset($_POST['order_id']) && isset($_POST['status'])) {
     </div>
 
     <!-- FOOTER -->
-    <footer class="footer">
-        <div class="container">
-            <p>&copy; 2026 Demo Project - Admin</p>
-        </div>
-    </footer>
+<div class="footer">
+        <p>All Rights Reserved &copy; 2025</p>
+    </div>
+
 </body>
 </html>
 
