@@ -75,7 +75,7 @@
     </div>
   <div class="containerbtnlg">
       <a href="index.html"><button type="button" class="cancelbtn">Cancel</button></a>
-      <P><b>Already Have An Account? </b> <a href="login.html">Login</a></P>
+      <P><b>Already Have An Account? </b> <a href="login.php">Login</a></P>
   </div>
   <script src="jscript.js"></script>
 </form>
